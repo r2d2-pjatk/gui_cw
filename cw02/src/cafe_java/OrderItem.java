@@ -8,7 +8,7 @@ public record OrderItem(Product product, int quantity) {
         }
 
         if (quantity < 1) {
-            throw new IllegalArgumentException("Ilość musi wynosić co namniej 1. Otrzymano " + quantity);
+            throw new IllegalArgumentException("Ilość musi wynosić co najmniej 1. Otrzymano " + quantity);
         }
 
     }
