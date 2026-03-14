@@ -1,4 +1,4 @@
-package zaddod02;
+package zaddod02.zad01;
 
 public class Square implements Comparable<Square> {
 
