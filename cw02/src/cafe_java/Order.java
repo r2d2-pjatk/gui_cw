@@ -171,4 +171,76 @@ public class Order {
 
     }
 
+    public static class Builder {
+
+        private static final int INITIAL_CAPACITY = 4;
+
+        private final int id;
+        private final Customer customer;
+        private OrderItem[] items;
+        private int size;
+        private Discount discount;
+
+        public Builder(int id, Customer customer) {
+            if (id <= 0) {
+                throw new IllegalArgumentException("ID zamówienia musi być większe od zera");
+            } else {
+                this.id = id;
+            }
+
+            if (customer == null) {
+                throw new IllegalArgumentException("klient nie może być równy null");
+            } else {
+                this.customer = customer;
+            }
+
+            this.items = new OrderItem[INITIAL_CAPACITY];
+            this.size = 0;
+        }
+
+        private void grow() {
+            OrderItem[] newItems = new OrderItem[items.length * 2];
+
+            for (int i = 0; i < size; i++) {
+                newItems[i] = items[i];
+            }
+
+            this.items = newItems;
+        }
+
+        public Builder addItem(Product product, int quantity) {
+            if (size == items.length) {
+                this.grow();
+            }
+
+            OrderItem item = new OrderItem(product, quantity);
+            items[size++] = item;
+
+            return this;
+        }
+
+        public Builder addItem(Product product) {
+            return this.addItem(product, 1);
+        }
+
+        public Builder withDiscount(Discount discount) {
+            this.discount = discount;
+            return this;
+        }
+
+        public Order build() {
+            if (size <= 0) {
+                throw new IllegalArgumentException("zamówienie musi zawierać co najmniej jedną pozycję");
+            }
+
+            OrderItem[] newItems = new OrderItem[size];
+            for (int i = 0; i < size; i++) {
+                newItems[i] = items[i];
+            }
+
+            return new Order(id, newItems, customer, discount);
+        }
+
+    }
+
 }
