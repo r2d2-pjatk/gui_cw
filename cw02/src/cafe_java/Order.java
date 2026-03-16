@@ -230,7 +230,7 @@ public class Order {
 
         public Order build() {
             if (size <= 0) {
-                throw new IllegalArgumentException("zamówienie musi zawierać co najmniej jedną pozycję");
+                throw new IllegalStateException("zamówienie musi zawierać co najmniej jedną pozycję");
             }
 
             OrderItem[] newItems = new OrderItem[size];
