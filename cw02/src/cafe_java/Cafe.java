@@ -97,5 +97,16 @@ public class Cafe {
             menu[j + 1] = key;
         }
     }
-
+    
+    public void displayMenu() {
+        System.out.println(name.toUpperCase());
+        
+        for (int i = 0; i < menuSize; i++) {
+            System.out.print((i + 1) + ". ");
+            System.out.println(menu[i].formatted());
+        }
+        
+        System.out.println();
+    }
+    
 }
