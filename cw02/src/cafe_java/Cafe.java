@@ -83,5 +83,19 @@ public class Cafe {
 
         return filteredMenu;
     }
+    
+    public void sortMenuByPrice() {
+        for (int i = 1; i < menuSize; i++) {
+            Product key = menu[i];
+            int j = i - 1;
+            
+            while (j >= 0 && menu[j].price() > key.price()) {
+                menu[j + 1] = menu[j];
+                j--;
+            }
+            
+            menu[j + 1] = key;
+        }
+    }
 
 }
