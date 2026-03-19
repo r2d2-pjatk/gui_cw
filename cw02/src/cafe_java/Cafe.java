@@ -126,4 +126,25 @@ public class Cafe {
         }
     }
     
+    public Order[] getOrdersByCustomer(String customerName) {
+        int count = 0;
+        
+        for (int i = 0; i < orderCount; i++) {
+            if (orders[i].getCustomer().name().equalsIgnoreCase(customerName)) {
+                count++;
+            }
+        }
+        
+        Order[] newOrders = new Order[count];
+        int idx = 0;
+        
+        for (int i = 0; i < orderCount; i++) {
+            if (orders[i].getCustomer().name().equalsIgnoreCase(customerName)) {
+                newOrders[idx++] = orders[i];
+            }
+        }
+        
+        return newOrders;
+    }
+    
 }
