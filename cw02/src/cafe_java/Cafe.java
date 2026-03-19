@@ -159,4 +159,16 @@ public class Cafe {
         }
     }
     
+    public String getName() {
+        return name;
+    }
+    
+    public int getMenuSize() {
+        return menuSize;
+    }
+    
+    public int getOrderCount() {
+        return orderCount;
+    }
+    
 }
