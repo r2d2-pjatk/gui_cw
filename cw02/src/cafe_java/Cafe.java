@@ -171,4 +171,14 @@ public class Cafe {
         return orderCount;
     }
     
+    public Order[] getOrders() {
+        Order[] newOrders = new Order[orderCount];
+        
+        for (int i = 0; i < orderCount; i++) {
+            newOrders[i] = orders[i];
+        }
+        
+        return newOrders;
+    }
+    
 }
