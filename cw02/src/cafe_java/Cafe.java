@@ -109,4 +109,21 @@ public class Cafe {
         System.out.println();
     }
     
+    public void addOrder(Order order) {
+        if (order == null) {
+            throw new IllegalArgumentException("zamówienie nie może być równe null");
+        }
+        
+        if (orderCount == orders.length) {
+            Order[] newOrders = new Order[orders.length * 2];
+            
+            for (int i = 0; i < orders.length; i++) {
+                newOrders[i] = orders[i];
+            }
+            
+            this.orders = newOrders;
+            this.orders[orderCount++] = order;
+        }
+    }
+    
 }
