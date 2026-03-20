@@ -120,7 +120,7 @@ public class Order {
 
         private String formatNegLine(String label, double amount) {
             String leftSide = '\t' + label;
-            String rightSide = String.format("-%.2f zł", amount);
+            String rightSide = String.format("%.2f zł", amount);
 
             int numOfSpacesToAlign = Math.max(WIDTH - (leftSide.length() + rightSide.length()), 1);
             return leftSide + " ".repeat(numOfSpacesToAlign) + rightSide;
