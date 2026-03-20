@@ -195,6 +195,20 @@ public class Cafe {
             this.count = count;
         }
         
+        public double totalRevenue() {
+            double sum = 0;
+            
+            for (int i = 0; i < count; i++) {
+                sum += orders[i].calculateTotal();
+            }
+            
+            return sum;
+        }
+        
+        public double averageOrderValue() {
+            return this.totalRevenue() / count;
+        }
+        
     }
     
 }
