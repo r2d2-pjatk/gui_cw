@@ -30,7 +30,7 @@ public record Customer(String name, String email, int loyaltyPoints) {
     }
 
     public String formatted() {
-        return String.format("imię: %s, liczba punktów: %d, poziom lojalności: %s", name, loyaltyPoints, this.loyaltyLevel());
+        return String.format("%s [%s] (%d pkt)", name, loyaltyLevel(), loyaltyPoints);
     }
 
 }
