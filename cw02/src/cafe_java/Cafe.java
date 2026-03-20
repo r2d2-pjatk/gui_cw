@@ -276,5 +276,18 @@ public class Cafe {
         }
         
     }
-    
+
+    public class DailyReport {
+
+        private final String reportDate;
+
+        public DailyReport(String reportDate) {
+            if (reportDate == null || reportDate.isBlank()) {
+                throw new IllegalArgumentException("data raportu nie może być pusta");
+            } else {
+                this.reportDate = reportDate;
+            }
+        }
+    }
+
 }
