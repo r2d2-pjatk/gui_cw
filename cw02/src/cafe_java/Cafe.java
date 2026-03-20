@@ -151,8 +151,9 @@ public class Cafe {
     }
     
     public void sortOrdersByTotal() {
+        // sortowanie przez bubble sort
         for (int i = 0; i < orderCount - 1; i++) {
-            for (int j = 0; i < orderCount - i - 1; j++) {
+            for (int j = 0; j < orderCount - i - 1; j++) {
                 if (orders[j].calculateTotal() > orders[j + 1].calculateTotal()) {
                     Order temp = orders[j];
                     orders[j] = orders[j + 1];
