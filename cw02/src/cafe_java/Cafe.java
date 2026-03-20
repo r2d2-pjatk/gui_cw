@@ -243,6 +243,38 @@ public class Cafe {
             return total;
         }
         
+        public String summary() {
+            StringBuilder sb = new StringBuilder();
+            
+            sb.append("STATYSTYKI\n\n");
+            
+            sb.append(String.format("%2s %d\n", "Liczba zamówień:", count));
+            sb.append(String.format("%2s %d\n", "Sprzedanych sztuk:", totalItemsSold()));
+            sb.append(String.format("%2s %.2f %s\n", "Łączny przychód:", totalRevenue(), "zł"));
+            sb.append(String.format("%2s %.2f %s\n", "Średnia wartość:", averageOrderValue(), "zł"));
+            
+            sb.append(
+                    String.format(
+                        "%2s #%d (%.2f %s)\n",
+                        "Najdroższe:",
+                        mostExpensiveOrder().getId(),
+                        mostExpensiveOrder().calculateTotal(),
+                        "zł"
+                    )
+            );
+            sb.append(
+                    String.format(
+                        "%2s #%d (%.2f %s)\n",
+                        "Najtańsze:",
+                        cheapestOrder().getId(),
+                        cheapestOrder().calculateTotal(),
+                        "zł"
+                    )
+            );
+            
+            return sb.toString();
+        }
+        
     }
     
 }
