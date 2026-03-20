@@ -99,7 +99,7 @@ public class Cafe {
     }
     
     public void displayMenu() {
-        System.out.println(name.toUpperCase());
+        System.out.println("=== MENU: " + name.toUpperCase() + " ===");
         
         for (int i = 0; i < menuSize; i++) {
             System.out.print((i + 1) + ". ");
