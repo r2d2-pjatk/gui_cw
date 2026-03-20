@@ -131,17 +131,22 @@ public class Order {
             String sep1 = "=".repeat(WIDTH);
             String sep2 = "-".repeat(WIDTH);
 
+            // nagłówek kawiarni
             sb.append(sep1 + '\n' + this.center(CAFE_NAME) + '\n' + sep1 + '\n');
 
+            // data paragonu
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
-            sb.append(formatter.format(createdAt));
+            String dateString = formatter.format(createdAt);
+            sb.append(String.format("%-12s%s\n", "Data:", dateString));
 
-            sb.append('\n' + cashierName + '\n');
+            // imię kasjera
+            sb.append(String.format("%-12s%s\n", "Kasjer:", cashierName));
 
-            sb.append(id + '\n');
+            // nr. zamówienia
+            sb.append(String.format("%-12s#%d\n", "Zamówienie:", id));
 
-            sb.append(customer.name() + '\n');
-            sb.append(customer.name() + ' ' + customer.loyaltyLevel() + '\n');
+            // klient
+            sb.append(String.format("%-12s%s [%s]\n", "Klient:", customer.name(), customer.loyaltyLevel()));
             sb.append("\n");
 
             for (OrderItem item : items) {
