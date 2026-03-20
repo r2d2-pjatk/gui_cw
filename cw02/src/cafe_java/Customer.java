@@ -8,7 +8,7 @@ public record Customer(String name, String email, int loyaltyPoints) {
             throw new IllegalArgumentException("Imię klienta nie może być puste");
         }
 
-        if (email == null || email.contains("@")) {
+        if (email == null || !email.contains("@")) {
             throw new IllegalArgumentException("Nieprawidłowy adres email: " + email);
         }
 
