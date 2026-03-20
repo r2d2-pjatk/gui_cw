@@ -55,11 +55,11 @@ public class Cafe {
         if (index == -1) {
             return false;
         } else {
-            for (int i = index; i < menuSize; i++) {
+            for (int i = index; i < menuSize - 1; i++) {
                 menu[i] = menu[i + 1];
             }
 
-            menu[menuSize--] = null;
+            menu[--menuSize] = null;
             return true;
         }
     }
