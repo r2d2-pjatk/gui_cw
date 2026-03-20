@@ -126,7 +126,7 @@ public class Order {
             return leftSide + " ".repeat(numOfSpacesToAlign) + rightSide;
         }
 
-        private String generate() {
+        public String generate() {
             StringBuilder sb = new StringBuilder();
             String sep1 = "=".repeat(WIDTH);
             String sep2 = "-".repeat(WIDTH);
