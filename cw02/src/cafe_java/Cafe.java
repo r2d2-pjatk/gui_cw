@@ -32,13 +32,14 @@ public class Cafe {
         if (menuSize == menu.length) {
             Product[] newMenu = new Product[menu.length * 2];
 
-            for (int i = 0; i < menu.length; i++) {
+            for (int i = 0; i < menuSize; i++) {
                 newMenu[i] = menu[i];
             }
 
             this.menu = newMenu;
-            this.menu[menuSize++] = product;
         }
+
+        this.menu[menuSize++] = product;
     }
 
     public boolean removeProduct(String productName) {
