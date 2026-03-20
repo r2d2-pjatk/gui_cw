@@ -5,7 +5,7 @@ public class FixedAmountDiscount extends Discount {
     private final double amount;
 
     public FixedAmountDiscount(double amount) {
-        super(String.format("%.2f zniżki", amount));
+        super(String.format("%.2f zł zniżki", amount));
         if (amount <= 0) {
             throw new IllegalArgumentException("niepoprawna wartość rabatu: " + amount);
         } else {
@@ -19,7 +19,7 @@ public class FixedAmountDiscount extends Discount {
 
     @Override
     public double apply(double originalPrice) {
-        return Math.max(amount - originalPrice, 0);
+        return Math.max(originalPrice - amount, 0);
     }
 
 }
