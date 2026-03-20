@@ -209,6 +209,30 @@ public class Cafe {
             return this.totalRevenue() / count;
         }
         
+        public Order mostExpensiveOrder() {
+            Order max = orders[0];
+            
+            for (int i = 0; i < count; i++) {
+                if (orders[i].calculateTotal() > max.calculateTotal()) {
+                    max = orders[i];
+                }
+            }
+            
+            return max;
+        }
+        
+        public Order cheapestOrder() {
+            Order min = orders[0];
+            
+            for (int i = 0; i < count; i++) {
+                if (orders[i].calculateTotal() < min.calculateTotal()) {
+                    min = orders[i];
+                }
+            }
+            
+            return min;
+        }
+        
     }
     
 }
