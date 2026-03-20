@@ -181,4 +181,20 @@ public class Cafe {
         return newOrders;
     }
     
+    public static class Statistics {
+        
+        private final Order[] orders;
+        private final int count;
+        
+        public Statistics(Order[] orders, int count) {
+            if (orders == null || count <= 0) {
+                throw new IllegalArgumentException("brak zamówień do analizy");
+            }
+            
+            this.orders = orders;
+            this.count = count;
+        }
+        
+    }
+    
 }
