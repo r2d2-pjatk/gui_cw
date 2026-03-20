@@ -118,13 +118,14 @@ public class Cafe {
         if (orderCount == orders.length) {
             Order[] newOrders = new Order[orders.length * 2];
             
-            for (int i = 0; i < orders.length; i++) {
+            for (int i = 0; i < orderCount; i++) {
                 newOrders[i] = orders[i];
             }
             
             this.orders = newOrders;
-            this.orders[orderCount++] = order;
         }
+
+        this.orders[orderCount++] = order;
     }
     
     public Order[] getOrdersByCustomer(String customerName) {
