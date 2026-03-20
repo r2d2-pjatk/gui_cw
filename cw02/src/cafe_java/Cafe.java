@@ -288,6 +288,54 @@ public class Cafe {
                 this.reportDate = reportDate;
             }
         }
+
+        public String generate() {
+            StringBuilder sb = new StringBuilder();
+
+            String sep = "=".repeat(50);
+
+            sb.append(sep + '\n');
+            sb.append("RAPORT DZIENNY: " + name + '\n');
+            sb.append("Data: " + reportDate + '\n');
+            sb.append(sep + '\n');
+            sb.append('\n');
+
+            sb.append("Produktów w menu: " + menuSize + '\n');
+            sb.append("Zamówień: " + orderCount + '\n');
+            sb.append('\n');
+
+            if (orderCount > 0) {
+                sb.append("--- Lista zamówień ---");
+                for (int i = 0; i < orderCount; i++) {
+                    int orderId = orders[i].getId();
+                    String customerName = orders[i].getCustomer().name();
+                    double orderTotal = orders[i].calculateTotal();
+                    int orderItemCount = orders[i].getItemCount();
+
+                    sb.append(
+                            String.format(
+                                    "#%d | %4s | %.2f | %d szt.\n",
+                                    orderId,
+                                    customerName,
+                                    orderTotal,
+                                    orderItemCount
+                            )
+                    );
+                }
+                sb.append('\n');
+
+                Statistics stats = new Statistics(orders, orderCount);
+                sb.append("Przychód łączny: " + stats.totalRevenue());
+                sb.append("Średnia wartość: "  + stats.averageOrderValue());
+            } else {
+                sb.append("Brak zamówień");
+            }
+
+            sb.append('\n' + sep + "\n\n");
+
+            return sb.toString();
+        }
+
     }
 
 }
