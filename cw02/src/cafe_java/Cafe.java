@@ -66,8 +66,8 @@ public class Cafe {
     public Product[] getProductsByCategory(String category) {
         int count = 0;
 
-        for (Product product : menu) {
-            if (product.category().equalsIgnoreCase(category)) {
+        for (int i = 0; i < menuSize; i++) {
+            if (menu[i].category().equalsIgnoreCase(category)) {
                 count++;
             }
         }
@@ -75,9 +75,9 @@ public class Cafe {
         Product[] filteredMenu = new Product[count];
         int idx = 0;
 
-        for (Product product : menu) {
-            if (product.category().equalsIgnoreCase(category)) {
-                filteredMenu[idx++] = product;
+        for (int i = 0; i < menuSize; i++) {
+            if (menu[i].category().equalsIgnoreCase(category)) {
+                filteredMenu[idx++] = menu[i];
             }
         }
 
