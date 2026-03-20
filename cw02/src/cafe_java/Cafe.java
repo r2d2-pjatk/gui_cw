@@ -233,6 +233,16 @@ public class Cafe {
             return min;
         }
         
+        public int totalItemsSold() {
+            int total = 0;
+            
+            for (int i = 0; i < count; i++) {
+                total += orders[i].getItemCount();
+            }
+            
+            return total;
+        }
+        
     }
     
 }
