@@ -304,12 +304,13 @@ public class Cafe {
             sb.append(sep + '\n');
             sb.append('\n');
 
-            sb.append("Produktów w menu: " + menuSize + '\n');
-            sb.append("Zamówień: " + orderCount + '\n');
+            sb.append(String.format("%-18s%d\n", "Produktów w menu:", menuSize));
+            sb.append(String.format("%-18s%d\n", "Zamówień:", orderCount));
             sb.append('\n');
 
             if (orderCount > 0) {
-                sb.append("--- Lista zamówień ---");
+                sb.append("--- Lista zamówień ---\n");
+
                 for (int i = 0; i < orderCount; i++) {
                     int orderId = orders[i].getId();
                     String customerName = orders[i].getCustomer().name();
@@ -318,7 +319,7 @@ public class Cafe {
 
                     sb.append(
                             String.format(
-                                    "#%d | %4s | %.2f | %d szt.\n",
+                                    "#%d | %-10s | %.2f | %d szt.\n",
                                     orderId,
                                     customerName,
                                     orderTotal,
@@ -326,11 +327,12 @@ public class Cafe {
                             )
                     );
                 }
+
                 sb.append('\n');
 
                 Statistics stats = new Statistics(orders, orderCount);
-                sb.append("Przychód łączny: " + stats.totalRevenue());
-                sb.append("Średnia wartość: "  + stats.averageOrderValue());
+                sb.append(String.format("%s %.2f %s\n", "Przychód łączny:", stats.totalRevenue(), "zł"));
+                sb.append(String.format("%s %.2f %s\n", "Średnia wartość:", stats.averageOrderValue(), "zł"));
             } else {
                 sb.append("Brak zamówień");
             }
