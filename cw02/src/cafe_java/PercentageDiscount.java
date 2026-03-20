@@ -8,7 +8,9 @@ public class PercentageDiscount extends Discount {
         super(String.format("%.2f%% zniżki", percentage));
 
         if (percentage <= 0 || percentage > 100) {
-            throw new IllegalArgumentException("Niepoprawny zakres procentu rabatu " + percentage);
+            throw new IllegalArgumentException(
+                "Procent rabatu musi być w zakresie (0, 100]. Otrzymano: " + ((int) percentage) + "."
+            );
         } else {
             this.percentage = percentage;
         }

@@ -7,7 +7,7 @@ public class FixedAmountDiscount extends Discount {
     public FixedAmountDiscount(double amount) {
         super(String.format("%.2f zł zniżki", amount));
         if (amount <= 0) {
-            throw new IllegalArgumentException("niepoprawna wartość rabatu: " + amount);
+            throw new IllegalArgumentException("Kwota rabatu musi być > 0. Otrzymano: " + amount);
         } else {
             this.amount = amount;
         }
