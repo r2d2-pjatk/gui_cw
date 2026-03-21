@@ -156,6 +156,8 @@ public
             for (int i = 0; i < filterCount; i++) {
                 newFilters[i] = filters[i];
             }
+
+            filters = newFilters;
         }
 
         filters[filterCount++] = filter;
